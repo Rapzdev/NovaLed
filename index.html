@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaLed - Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-page">
+    <div class="auth-container">
+        <div class="auth-header">
+            <h1>🪬 NovaLed</h1>
+            <p>Selamat Datang Kembali</p>
+        </div>
+        
+        <form id="loginForm" class="auth-form">
+            <div class="form-group">
+                <input type="text" id="loginUsername" placeholder="Username" required>
+            </div>
+            
+            <div class="form-group">
+                <input type="password" id="loginPassword" placeholder="Password" required>
+            </div>
+            
+            <button type="submit" class="btn-primary">Masuk</button>
+            
+            <div class="auth-switch">
+                <p>Belum ada akaun? <a href="register.html">Daftar Sekarang</a></p>
+            </div>
+        </form>
+        
+        <div id="errorMessage" class="error-message"></div>
+    </div>
+
+    <!-- Owner Popup Notification -->
+    <div id="ownerPopup" class="owner-popup hidden">
+        <div class="popup-content">
+            <div class="popup-header">
+                <span class="popup-icon">🪬</span>
+                <span class="popup-title">Mesej dari Owner</span>
+            </div>
+            <p id="popupMessage"></p>
+        </div>
+    </div>
+
+    <script type="module" src="firebase-config.js"></script>
+    <script type="module" src="auth.js"></script>
+</body>
+</html>
