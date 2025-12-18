@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaLed - Admin Panel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="nav-logo">🪬 NovaLed Admin</h1>
+            <div class="nav-menu">
+                <a href="home.html" class="nav-link">Home</a>
+                <a href="profile.html" class="nav-link">Profile</a>
+                <a href="admin-panel.html" class="nav-link active">Admin Panel</a>
+                <a href="ban-users.html" class="nav-link">Ban Users</a>
+                <a href="#" id="logoutBtn" class="nav-link">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <div class="admin-container">
+            <div class="admin-header">
+                <h2>🪬 Admin Panel</h2>
+                <p>Papan Kawalan Owner</p>
+            </div>
+
+            <!-- Statistics -->
+            <div class="admin-stats">
+                <div class="stat-card">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-info">
+                        <h3 id="totalUsers">0</h3>
+                        <p>Jumlah Users</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">📝</div>
+                    <div class="stat-info">
+                        <h3 id="totalPosts">0</h3>
+                        <p>Jumlah Posts</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">🔴</div>
+                    <div class="stat-info">
+                        <h3 id="activeLives">0</h3>
+                        <p>Live Aktif</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">🚫</div>
+                    <div class="stat-info">
+                        <h3 id="bannedUsers">0</h3>
+                        <p>Users Dibanned</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Users List -->
+            <div class="admin-users-card">
+                <h3>Senarai Users Terdaftar</h3>
+                <div class="search-box">
+                    <input type="text" id="searchUsers" placeholder="Cari username atau email...">
+                </div>
+                <div id="usersTableContainer" class="users-table-container">
+                    <table class="users-table">
+                        <thead>
+                            <tr>
+                                <th>Avatar</th>
+                                <th>Username</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Tarikh Daftar</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="usersTableBody">
+                            <tr>
+                                <td colspan="6" class="loading">Memuatkan data...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Owner Popup Notification -->
+    <div id="ownerPopup" class="owner-popup hidden">
+        <div class="popup-content">
+            <div class="popup-header">
+                <span class="popup-icon">🪬</span>
+                <span class="popup-title">Mesej dari Owner</span>
+            </div>
+            <p id="popupMessage"></p>
+        </div>
+    </div>
+
+    <script type="module" src="firebase-config.js"></script>
+    <script type="module" src="admin-panel.js"></script>
+</body>
+</html>
