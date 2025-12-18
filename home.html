@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaLed - Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="nav-logo">🪬 NovaLed</h1>
+            <div class="nav-menu">
+                <a href="home.html" class="nav-link active">Home</a>
+                <a href="profile.html" class="nav-link">Profile</a>
+                <a href="live.html" class="nav-link">🔴 Live</a>
+                <a href="#" id="logoutBtn" class="nav-link">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <!-- Post Creation -->
+        <div class="create-post-card">
+            <h3>Buat Post Baru</h3>
+            <form id="createPostForm">
+                <textarea id="postCaption" placeholder="Apa yang anda fikirkan?" rows="3"></textarea>
+                
+                <div class="post-type-selector">
+                    <label>
+                        <input type="radio" name="postType" value="image" checked>
+                        <span>📷 Gambar</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="postType" value="video">
+                        <span>🎥 Video</span>
+                    </label>
+                </div>
+                
+                <input type="file" id="mediaInput" accept="image/*,video/*" required>
+                
+                <button type="submit" class="btn-primary">Siar Post</button>
+            </form>
+            <div id="uploadProgress" class="upload-progress hidden"></div>
+        </div>
+
+        <!-- Feed -->
+        <div id="feedContainer" class="feed-container">
+            <div class="loading">Memuatkan post...</div>
+        </div>
+    </div>
+
+    <!-- Owner Popup Notification -->
+    <div id="ownerPopup" class="owner-popup hidden">
+        <div class="popup-content">
+            <div class="popup-header">
+                <span class="popup-icon">🪬</span>
+                <span class="popup-title">Mesej dari Owner</span>
+            </div>
+            <p id="popupMessage"></p>
+        </div>
+    </div>
+
+    <script type="module" src="firebase-config.js"></script>
+    <script type="module" src="home.js"></script>
+</body>
+</html>
