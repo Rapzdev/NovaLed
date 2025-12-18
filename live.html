@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaLed - Live</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="nav-logo">🪬 NovaLed</h1>
+            <div class="nav-menu">
+                <a href="home.html" class="nav-link">Home</a>
+                <a href="profile.html" class="nav-link">Profile</a>
+                <a href="live.html" class="nav-link active">🔴 Live</a>
+                <a href="#" id="logoutBtn" class="nav-link">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <div class="live-container">
+            <div class="live-header">
+                <h2>🔴 Live Streaming</h2>
+                <div id="liveStatus" class="live-status"></div>
+            </div>
+
+            <!-- Live Controls -->
+            <div class="live-controls-card">
+                <div id="liveInfo" class="live-info">
+                    <p>Status: <span id="streamStatus">Offline</span></p>
+                    <p id="timeRemaining" class="hidden">Masa Tinggal: <span id="timeLeft">10:00</span></p>
+                    <p id="cooldownTimer" class="hidden">Cooldown: <span id="cooldownLeft">10:00</span></p>
+                </div>
+
+                <div class="live-buttons">
+                    <button id="startLiveBtn" class="btn-live">Mula Live</button>
+                    <button id="stopLiveBtn" class="btn-stop hidden">Henti Live</button>
+                </div>
+
+                <!-- Live Preview -->
+                <div id="livePreview" class="live-preview hidden">
+                    <video id="liveVideo" autoplay muted></video>
+                    <div class="live-badge">🔴 LIVE</div>
+                    <div class="live-viewers">
+                        <span>👁️ <span id="viewerCount">0</span></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Active Live Streams -->
+            <div class="active-streams">
+                <h3>Live Streams Aktif</h3>
+                <div id="activeStreamsContainer" class="streams-grid">
+                    <p class="no-streams">Tiada live stream aktif sekarang</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Owner Popup Notification -->
+    <div id="ownerPopup" class="owner-popup hidden">
+        <div class="popup-content">
+            <div class="popup-header">
+                <span class="popup-icon">🪬</span>
+                <span class="popup-title">Mesej dari Owner</span>
+            </div>
+            <p id="popupMessage"></p>
+        </div>
+    </div>
+
+    <div id="statusMessage" class="status-message"></div>
+
+    <script type="module" src="firebase-config.js"></script>
+    <script type="module" src="live.js"></script>
+</body>
+</html>
