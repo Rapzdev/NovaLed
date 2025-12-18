@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaLed - Profile</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="nav-logo">🪬 NovaLed</h1>
+            <div class="nav-menu">
+                <a href="home.html" class="nav-link">Home</a>
+                <a href="profile.html" class="nav-link active">Profile</a>
+                <a href="live.html" class="nav-link">🔴 Live</a>
+                <a href="#" id="logoutBtn" class="nav-link">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <div class="profile-container">
+            <!-- Profile Header -->
+            <div class="profile-header">
+                <div class="profile-avatar-section">
+                    <img id="profileAvatar" src="" alt="Profile" class="profile-avatar">
+                    <button id="changeAvatarBtn" class="btn-secondary">Tukar Gambar</button>
+                    <input type="file" id="avatarInput" accept="image/*" style="display: none;">
+                </div>
+                
+                <div class="profile-info">
+                    <h2 id="profileUsername"></h2>
+                    <p id="profileEmail" class="profile-email"></p>
+                    <div class="profile-stats">
+                        <div class="stat">
+                            <span class="stat-number" id="postCount">0</span>
+                            <span class="stat-label">Posts</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Edit Profile Section -->
+            <div class="profile-edit-card">
+                <h3>Edit Profile</h3>
+                
+                <!-- Change Username -->
+                <div class="edit-section">
+                    <h4>Tukar Username</h4>
+                    <form id="changeUsernameForm">
+                        <input type="text" id="newUsername" placeholder="Username Baru" required>
+                        <button type="submit" class="btn-primary">Update Username</button>
+                    </form>
+                </div>
+
+                <!-- Change Password -->
+                <div class="edit-section">
+                    <h4>Tukar Password</h4>
+                    <form id="changePasswordForm">
+                        <input type="password" id="currentPassword" placeholder="Password Sekarang" required>
+                        <input type="password" id="newPassword" placeholder="Password Baru" required>
+                        <input type="password" id="confirmNewPassword" placeholder="Confirm Password Baru" required>
+                        <button type="submit" class="btn-primary">Update Password</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- User Posts -->
+            <div class="profile-posts">
+                <h3>Post Saya</h3>
+                <div id="userPostsContainer" class="user-posts-grid">
+                    <div class="loading">Memuatkan post...</div>
+                </div>
+            </div>
+
+            <!-- Owner Menu -->
+            <div id="ownerMenu" class="owner-menu hidden">
+                <h3>🪬 Menu Owner</h3>
+                <div class="owner-buttons">
+                    <a href="admin-panel.html" class="btn-owner">Admin Panel</a>
+                    <a href="ban-users.html" class="btn-owner">Ban Users</a>
+                    <button id="sendPopupBtn" class="btn-owner">Hantar Popup ke Semua User</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup Message Modal -->
+    <div id="popupModal" class="modal hidden">
+        <div class="modal-content">
+            <h3>Hantar Mesej Popup</h3>
+            <textarea id="popupMessageInput" placeholder="Taip mesej untuk semua user..." rows="4"></textarea>
+            <div class="modal-buttons">
+                <button id="sendPopupConfirm" class="btn-primary">Hantar</button>
+                <button id="cancelPopup" class="btn-secondary">Batal</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Owner Popup Notification -->
+    <div id="ownerPopup" class="owner-popup hidden">
+        <div class="popup-content">
+            <div class="popup-header">
+                <span class="popup-icon">🪬</span>
+                <span class="popup-title">Mesej dari Owner</span>
+            </div>
+            <p id="popupMessage"></p>
+        </div>
+    </div>
+
+    <div id="statusMessage" class="status-message"></div>
+
+    <script type="module" src="firebase-config.js"></script>
+    <script type="module" src="profile.js"></script>
+</body>
+</html>
