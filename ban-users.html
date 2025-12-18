@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaLed - Ban Users</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="nav-logo">🪬 NovaLed Admin</h1>
+            <div class="nav-menu">
+                <a href="home.html" class="nav-link">Home</a>
+                <a href="profile.html" class="nav-link">Profile</a>
+                <a href="admin-panel.html" class="nav-link">Admin Panel</a>
+                <a href="ban-users.html" class="nav-link active">Ban Users</a>
+                <a href="#" id="logoutBtn" class="nav-link">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <div class="ban-container">
+            <div class="ban-header">
+                <h2>🚫 Ban Users</h2>
+                <p>Urus pengguna yang melanggar peraturan</p>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-filter="all">Semua Users</button>
+                <button class="filter-tab" data-filter="banned">Users Dibanned</button>
+                <button class="filter-tab" data-filter="active">Users Aktif</button>
+            </div>
+
+            <!-- Search -->
+            <div class="search-box">
+                <input type="text" id="searchBanUsers" placeholder="Cari username...">
+            </div>
+
+            <!-- Users List -->
+            <div id="banUsersContainer" class="ban-users-grid">
+                <div class="loading">Memuatkan users...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ban Confirmation Modal -->
+    <div id="banModal" class="modal hidden">
+        <div class="modal-content">
+            <h3 id="banModalTitle">Ban User?</h3>
+            <p id="banModalMessage"></p>
+            <div class="modal-buttons">
+                <button id="confirmBanBtn" class="btn-danger">Ya, Ban</button>
+                <button id="cancelBanBtn" class="btn-secondary">Batal</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Owner Popup Notification -->
+    <div id="ownerPopup" class="owner-popup hidden">
+        <div class="popup-content">
+            <div class="popup-header">
+                <span class="popup-icon">🪬</span>
+                <span class="popup-title">Mesej dari Owner</span>
+            </div>
+            <p id="popupMessage"></p>
+        </div>
+    </div>
+
+    <div id="statusMessage" class="status-message"></div>
+
+    <script type="module" src="firebase-config.js"></script>
+    <script type="module" src="ban-users.js"></script>
+</body>
+</html>
